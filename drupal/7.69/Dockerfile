@@ -1,5 +1,5 @@
 # from https://www.drupal.org/docs/8/system-requirements/drupal-8-php-requirements
-FROM drupal:8.8.4-apache
+FROM drupal:7.69-apache
 
 # install the PHP extensions we need
 RUN set -eux; \
@@ -16,10 +16,3 @@ RUN mkdir -p /usr/src/php/ext/uploadprogress && \
   rm -rf \
       /usr/src/php/ext/uploadprogress \
       /tmp/*
-
-# Drush
-RUN curl -fSL -O https://github.com/drush-ops/drush-launcher/releases/download/0.6.0/drush.phar && \
-	chmod +x drush.phar && \
-	mv drush.phar /usr/local/bin/drush
-
-COPY --from=composer:latest /usr/bin/composer /usr/bin/composer

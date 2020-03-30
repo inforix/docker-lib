@@ -22,4 +22,10 @@ RUN curl -fSL -O https://github.com/drush-ops/drush-launcher/releases/download/0
 	chmod +x drush.phar && \
 	mv drush.phar /usr/local/bin/drush
 
+# Install composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+
+# move composer.json and composer.lock to sites
+RUN mv /var/www/html/composer.* /var/www/html/sites/ && \
+  ln -sf /var/www/html/sites/composer.json /var/www/html/composer.json && \
+  ln -sf /var/www/html/sites/composer.lock /var/www/html/composer.lock

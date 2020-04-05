@@ -1,5 +1,5 @@
 # from https://www.drupal.org/docs/8/system-requirements/drupal-8-php-requirements
-FROM drupal:8.8.4-apache
+FROM drupal:8.8.5-apache
 
 # install the PHP extensions we need
 RUN set -euxo; \

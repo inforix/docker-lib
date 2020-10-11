@@ -9,4 +9,5 @@ RUN set -eux; \
 #  && pecl install uploadprogress \
 #  && docker-php-ext-enable uploadprogress
 
+RUN ln -sf //etc/apache2/mods-available/headers.load /etc/apache2/mods-enabled/headers.load
 COPY .htaccess /var/www/html/.htaccess
